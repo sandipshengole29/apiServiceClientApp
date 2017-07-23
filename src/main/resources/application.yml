@@ -1,0 +1,24 @@
+#Application Property
+spring:
+ application:
+  name: apiServiceClientApp
+       
+#Server property 
+server:
+  port: 0
+  contextPath: /apiServiceClientApp
+  
+eureka:   
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}:${random.value} 
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 3
+    
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:4001/eureka
+
+logging:
+  level: 
+    httpclient.wire: DEBUG
